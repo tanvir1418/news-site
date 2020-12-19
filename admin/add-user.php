@@ -1,5 +1,8 @@
 <?php 
-    include "header.php"; 
+    include "header.php";
+    if($_SESSION['user_role'] == '0'){
+        header("Location: {$hostname}/admin/post.php");
+    }
     if(isset($_POST['save'])){
         require 'config.php';
         $fname = mysqli_real_escape_string($conn, $_POST['fname']);
