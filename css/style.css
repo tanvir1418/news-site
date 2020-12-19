@@ -542,3 +542,8 @@ i.fa{
 /* ===================== */
 /* FrontEnd CSS END */
 /* ===================== */
+
+li a.active{
+    color: white;
+    background-color: black;
+}
