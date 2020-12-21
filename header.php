@@ -34,12 +34,34 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+            <?php 
+                require 'config.php';
+
+                if(isset($_GET['cid'])){
+                    $cat_id = $_GET['cid'];
+                }
+
+                $sql = "SELECT * FROM category WHERE post > 0";
+                $result = mysqli_query($conn, $sql) or die("Query Failed. : Dynamic Category");
+                if(mysqli_num_rows($result) > 0) {
+                    $active = "";
+            ?>
                 <ul class='menu'>
-                    <li><a href='category.php'>Business</a></li>
-                    <li><a href='category.php'>Entertainment</a></li>
-                    <li><a href='category.php'>Sports</a></li>
-                    <li><a href='category.php'>Politics</a></li>
+                        
+                    <li><a href="<?php echo $hostname; ?>">Home</a></li>
+                    <?php while($row = mysqli_fetch_array($result)) {
+                        if(isset($_GET['cid'])){
+                            if($row['category_id'] == $cat_id){
+                                $active = "active";
+                            }else{
+                                 $active = "";
+                            }
+                        }
+                        //echo "<li><a class='{$active}' href='category.php?cid={$row['category_name']}'>{$row['category_name']}</a></li>";
+                        echo '<li><a class="'.$active.'" href="category.php?cid='.$row['category_id'].'">'.$row['category_name'].'</a></li>';
+                    } ?>
                 </ul>
+                <?php } ?>
             </div>
         </div>
     </div>

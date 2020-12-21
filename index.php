@@ -38,7 +38,7 @@
                                         <div class="post-information">
                                             <span>
                                                 <i class="fa fa-tags" aria-hidden="true"></i>
-                                                <a href='category.php'><?php echo $row['category_name']; ?></a>
+                                                <a href='category.php?cid=<?php echo $row['category']; ?>'><?php echo $row['category_name']; ?></a>
                                             </span>
                                             <span>
                                                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -89,11 +89,7 @@
                     }
                     
                     ?>
-                        <!-- <ul class='pagination'>
-                            <li class="active"><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                        </ul> -->
+
                     </div><!-- /post-container -->
                 </div>
                 <?php include 'sidebar.php'; ?>
