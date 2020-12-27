@@ -16,7 +16,7 @@
                     $result1 = mysqli_query($conn, $sql1) or die("Query Failed.");
                     $row1 = mysqli_fetch_assoc($result1);
                 ?>
-                  <h2 class="page-heading"><?php echo $row1['category_name']; ?></h2>
+                  <h2 class="page-heading">Category: <?php echo $row1['category_name']; ?></h2>
                   <?php 
                         // require 'config.php';
 

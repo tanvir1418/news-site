@@ -18,7 +18,7 @@
                     $result1 = mysqli_query($conn, $sql1) or die("Query Failed.");
                     $row1 = mysqli_fetch_assoc($result1);
                 ?>
-                  <h2 class="page-heading"><?php echo $row1['username']; ?></h2>
+                  <h2 class="page-heading">Author: <?php echo $row1['username']; ?></h2>
                   <?php 
                         // require 'config.php';
 
