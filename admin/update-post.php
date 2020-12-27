@@ -35,13 +35,11 @@
                 <label for="exampleInputCategory">Category</label>
                 <select class="form-control" name="category">
                 <option value="" disabled> Select Category</option>
-                //====================================================================================================//
-                // Problem Exists: If admin update category then previous category and new category should be updated //
-                //====================================================================================================//
+                
                 <?php 
                     require 'config.php';
                     $sql1 = "SELECT * FROM category";
-
+                    
                     $result1 = mysqli_query($conn, $sql1) or die("Query Failed.");
 
                     if(mysqli_num_rows($result1) > 0){
@@ -56,6 +54,7 @@
                     }
                 ?>
                 </select>
+                <input type="hidden" name="old_category" value="<?php echo $row['category']; ?>">
             </div>
             <div class="form-group">
                 <label for="">Post image</label>
