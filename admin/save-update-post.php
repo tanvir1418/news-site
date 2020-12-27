@@ -46,4 +46,11 @@
     }else{
         echo "Query Failed". mysqli_error($conn);
     }
+    
+    /* 
+    Problem Exists: In using \'s\ in the description section or any input field. Error description in below
+    You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 's Peace Prize. Sadat is a student of Class 12 at Narail Abdul Hye City College. ' at line 1
+    */
+    
 ?>
+
