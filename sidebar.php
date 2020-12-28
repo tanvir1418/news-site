@@ -17,7 +17,7 @@
         <h4>Recent Posts</h4>
         <?php 
             require 'config.php';
-            $limit = 3;
+            $limit = 5;
             
             $sql = "SELECT * FROM post
             LEFT JOIN category ON post.category = category.category_id

@@ -11,7 +11,7 @@
               <div class="col-md-12">
               <?php 
                 require 'config.php';
-                $limit = 3;
+                $limit = 15;
                 
                 if(isset($_GET['page'])){
                     $page = $_GET['page'];
@@ -49,9 +49,11 @@
                           <th>Delete</th>
                       </thead>
                       <tbody>
-                      <?php while($row = mysqli_fetch_assoc($result)){ ?>
+                      <?php 
+                        $serial = $offset + 1;
+                        while($row = mysqli_fetch_assoc($result)){ ?>
                           <tr>
-                              <td class='id'><?php echo $row['post_id']; ?></td>
+                              <td class='id'><?php echo $serial; ?></td>  <!-- we can also user $row'post_id'  -->
                               <td><?php echo $row['title']; ?></td>
                               <td><?php echo $row['category_name']; ?></td>
                               <td><?php echo $row['post_date']; ?></td>
@@ -59,7 +61,10 @@
                               <td class='edit'><a href='update-post.php?id=<?php echo $row['post_id']; ?>'><i class='fa fa-edit'></i></a></td>
                               <td class='delete'><a href='delete-post.php?id=<?php echo $row['post_id']; ?>&catid=<?php echo $row['category']; ?>'><i class='fa fa-trash-o'></i></a></td>
                           </tr>
-                          <?php } ?>
+                        <?php 
+                            $serial++;
+                          } 
+                        ?>
                       </tbody>
                   </table>
                   <?php 

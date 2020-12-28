@@ -7,7 +7,7 @@
                     <div class="post-container">
                     <?php 
                         require 'config.php';
-                        $limit = 3;
+                        $limit = 8;
                         
                         if(isset($_GET['page'])){
                             $page = $_GET['page'];
