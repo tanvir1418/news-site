@@ -2,7 +2,7 @@
     require 'config.php';
 
     if(empty($_FILES['new-image']['name'])){
-        $file_name = $_POST['old_image'];
+        $image_name = $_POST['old_image'];
     }else{
         $errors = array();
 
@@ -24,15 +24,19 @@
             $errors[] = "File size must be 2 mb or lower.";
         }
 
+        $new_name = time()."-".basename($file_name);
+        $target = "upload/".$new_name;
+        $image_name = $new_name;
+
         if(empty($errors) == true){
-            move_uploaded_file($file_tmp, "upload/".$file_name);
+            move_uploaded_file($file_tmp,$target);
         }else{
             print_r($errors);
             die();
         }
     }
 
-    $sql = "UPDATE post SET title='{$_POST["post_title"]}', description='{$_POST["postdesc"]}', category={$_POST["category"]}, post_img='{$file_name}' WHERE post_id={$_POST["post_id"]};";
+    $sql = "UPDATE post SET title='{$_POST["post_title"]}', description='{$_POST["postdesc"]}', category={$_POST["category"]}, post_img='{$image_name}' WHERE post_id={$_POST["post_id"]};";
 
     if($_POST['old_category'] != $_POST['category']){
         $sql .= "UPDATE category SET post=post-1 WHERE category_id = {$_POST['old_category']};";
