@@ -46,7 +46,7 @@
     $sql .= "UPDATE category SET post = post + 1 WHERE category_id = '{$category}'";
 
     if(mysqli_multi_query($conn, $sql)){
-        header("LOcation: {$hostname}/admin/post.php");
+        header("location: {$hostname}/admin/post.php");
     }else{
         echo "<div class='alert alert-danger'>Query Failed</div>";
     }
