@@ -27,7 +27,7 @@
                                 </span>
                                 <span>
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    <a href='author.php?aid=<?php echo $row['author']; ?>'><?php echo $row['username']; ?></a>
+                                    <a href='writer.php?aid=<?php echo $row['author']; ?>'><?php echo $row['username']; ?></a>
                                 </span>
                                 <span>
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -46,7 +46,7 @@
                     </div>
                     <!-- /post-container -->
                 </div>
-                <?php include 'sidebar.php'; ?>
+                <?php include 'sidenav.php'; ?>
             </div>
         </div>
     </div>

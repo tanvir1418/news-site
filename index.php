@@ -30,7 +30,7 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php?id=<?php echo $row['post_id']; ?>">
+                                <a class="post-img" href="postinfo.php?id=<?php echo $row['post_id']; ?>">
                                     <img src="admin/upload/<?php echo $row['post_img']; ?>" alt="" />
                                 </a>
                             </div>
@@ -38,7 +38,7 @@
                                 <div class="inner-content clearfix">
                                     <h3>
                                         <a
-                                            href='single.php?id=<?php echo $row['post_id']; ?>'><?php echo $row['title']; ?></a>
+                                            href='postinfo.php?id=<?php echo $row['post_id']; ?>'><?php echo $row['title']; ?></a>
                                     </h3>
                                     <div class="post-information">
                                         <span>
@@ -49,7 +49,7 @@
                                         <span>
                                             <i class="fa fa-user" aria-hidden="true"></i>
                                             <a
-                                                href='author.php?aid=<?php echo $row['author']; ?>'><?php echo $row['username']; ?></a>
+                                                href='writer.php?aid=<?php echo $row['author']; ?>'><?php echo $row['username']; ?></a>
                                         </span>
                                         <span>
                                             <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -59,7 +59,7 @@
 
                                     <p class="description"><?php echo substr($row['description'], 0, 130). "..."; ?></p>
                                     <a class='read-more pull-right'
-                                        href='single.php?id=<?php echo $row['post_id']; ?>'>read more</a>
+                                        href='postinfo.php?id=<?php echo $row['post_id']; ?>'>read more</a>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                 </div>
                 <!-- /post-container -->
             </div>
-            <?php include 'sidebar.php'; ?>
+            <?php include 'sidenav.php'; ?>
         </div>
     </div>
 </div>

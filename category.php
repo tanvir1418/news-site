@@ -1,11 +1,11 @@
 <?php include 'header.php'; ?>
-    <div id="main-content">
-      <div class="container">
+<div id="main-content">
+    <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <!-- post-container -->
                 <div class="post-container">
-                <?php
+                    <?php
                     require 'config.php';
 
                     if(isset($_GET['cid'])){
@@ -16,8 +16,8 @@
                     $result1 = mysqli_query($conn, $sql1) or die("Query Failed.");
                     $row1 = mysqli_fetch_assoc($result1);
                 ?>
-                  <h2 class="page-heading">Category: <?php echo $row1['category_name']; ?></h2>
-                  <?php 
+                    <h2 class="page-heading">Category: <?php echo $row1['category_name']; ?></h2>
+                    <?php 
                         // require 'config.php';
 
                         // if(isset($_GET['cid'])){
@@ -45,34 +45,40 @@
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_assoc($result)){
                     ?>
-                        <div class="post-content">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <a class="post-img" href="single.php?id=<?php echo $row['post_id']; ?>"><img src="admin/upload/<?php echo $row['post_img']; ?>" alt=""/></a>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="inner-content clearfix">
-                                        <h3><a href='single.php?id=<?php echo $row['post_id']; ?>'><?php echo $row['title']; ?></a></h3>
-                                        <div class="post-information">
-                                            <span>
-                                                <i class="fa fa-tags" aria-hidden="true"></i>
-                                                <a href='category.php?cid=<?php echo $row['category']; ?>'><?php echo $row['category_name']; ?></a>
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-user" aria-hidden="true"></i>
-                                                <a href='author.php?aid=<?php echo $row['author']; ?>'><?php echo $row['username']; ?></a>
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                <?php echo $row['post_date']; ?>
-                                            </span>
-                                        </div>
-                                        <p class="description"><?php echo substr($row['description'], 0, 130). "..."; ?></p>
-                                        <a class='read-more pull-right' href='single.php?id=<?php echo $row['post_id']; ?>'>read more</a>
+                    <div class="post-content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a class="post-img" href="postinfo.php?id=<?php echo $row['post_id']; ?>"><img
+                                        src="admin/upload/<?php echo $row['post_img']; ?>" alt="" /></a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="inner-content clearfix">
+                                    <h3><a
+                                            href='postinfo.php?id=<?php echo $row['post_id']; ?>'><?php echo $row['title']; ?></a>
+                                    </h3>
+                                    <div class="post-information">
+                                        <span>
+                                            <i class="fa fa-tags" aria-hidden="true"></i>
+                                            <a
+                                                href='category.php?cid=<?php echo $row['category']; ?>'><?php echo $row['category_name']; ?></a>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <a
+                                                href='writer.php?aid=<?php echo $row['author']; ?>'><?php echo $row['username']; ?></a>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            <?php echo $row['post_date']; ?>
+                                        </span>
                                     </div>
+                                    <p class="description"><?php echo substr($row['description'], 0, 130). "..."; ?></p>
+                                    <a class='read-more pull-right'
+                                        href='postinfo.php?id=<?php echo $row['post_id']; ?>'>read more</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <?php 
                         }
                     }else{
@@ -107,11 +113,11 @@
                     }
                     
                     ?>
-                    
+
                 </div><!-- /post-container -->
             </div>
-            <?php include 'sidebar.php'; ?>
+            <?php include 'sidenav.php'; ?>
         </div>
-      </div>
     </div>
+</div>
 <?php include 'footer.php'; ?>
